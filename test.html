@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Received HTML Data</title>
+</head>
+<body>
+
+    
+    <div id="htmlContent">
+        <!-- The received HTML content will be displayed here -->
+    </div>
+
+    <script>
+        // Function to decode and display HTML content
+        function displayHtmlContent() {
+            // Get the URL parameter containing the encoded HTML content
+            var urlParams = new URLSearchParams(window.location.search);
+            var encodedHtml = urlParams.get('html');
+
+            // Decode the HTML content
+            var decodedHtml = decodeURIComponent(encodedHtml);
+
+            // Display the HTML content in the body
+            document.getElementById('htmlContent').innerHTML = decodedHtml;
+        }
+
+        // Call the function when the page loads
+        window.onload = displayHtmlContent;
+    </script>
+
+</body>
+</html>
