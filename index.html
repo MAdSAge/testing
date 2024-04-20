@@ -1,32 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Received HTML Data</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Receiver</title>
 </head>
 <body>
-
-    
-    <div id="htmlContent">
-        <!-- The received HTML content will be displayed here -->
-    </div>
+    <div id="content"></div>
 
     <script>
-        // Function to decode and display HTML content
-        function displayHtmlContent() {
-            // Get the URL parameter containing the encoded HTML content
-            var urlParams = new URLSearchParams(window.location.search);
-            var encodedHtml = urlParams.get('html');
-
-            // Decode the HTML content
-            var decodedHtml = decodeURIComponent(encodedHtml);
-
-            // Display the HTML content in the body
-            document.getElementById('htmlContent').innerHTML = decodedHtml;
+        // Function to parse the form data from the URL
+        function parseFormData() {
+            var formData = new FormData(document.getElementById("htmlForm"));
+            return formData.get("htmlContent");
         }
 
-        // Call the function when the page loads
-        window.onload = displayHtmlContent;
+        // Set the HTML content to the body
+        document.getElementById("content").innerHTML = parseFormData();
     </script>
-
 </body>
 </html>
